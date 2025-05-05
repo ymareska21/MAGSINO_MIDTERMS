@@ -1328,7 +1328,7 @@ svg text {
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Make sure all marquee content sets are identical in width
+    
       const marquees = document.querySelectorAll('.marquee');
       
       marquees.forEach(marquee => {
@@ -1342,8 +1342,6 @@ svg text {
       
       const secondRow = document.getElementById('second-row');
       const marquee = secondRow.querySelector('.marquee');
-
-      // Initialize all popovers
       const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
       const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl, {
@@ -1361,7 +1359,7 @@ svg text {
         });
       });
 
-      // Pause animation on popover show/hide
+      // Pause animation 
       popoverTriggerList.forEach(function(popoverTrigger) {
         popoverTrigger.addEventListener('shown.bs.popover', function() {
           // Find the closest marquee to pause
@@ -1380,7 +1378,7 @@ svg text {
         });
       });
 
-      // Close popover when clicking outside
+      // Close popover 
       document.addEventListener('click', function(event) {
         if (!event.target.closest('.popover') && !event.target.closest('[data-bs-toggle="popover"]')) {
           popoverList.forEach(function(popover) {
@@ -1418,56 +1416,7 @@ svg text {
               });
             </script>
             
-  <!-- TO
-            <script
-                src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-                crossorigin="anonymous"
-            ></script>
-    
-            <script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-                integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-                crossorigin="anonymous"
-            ></script>
-
-            <script>
-                if ('WebSocket' in window) {
-                    (function () {
-                        function refreshCSS() {
-                            var sheets = [].slice.call(document.getElementsByTagName("link"));
-                            var head = document.getElementsByTagName("head")[0];
-                            for (var i = 0; i < sheets.length; ++i) { // Fixed loop condition and removed semicolon
-                                var elem = sheets[i];
-                                var parent = elem.parentElement || head;
-                                parent.removeChild(elem);
-                                var rel = elem.rel;
-                                if (elem.href && (typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet")) {
-                                    var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                                    elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                                }
-                                parent.appendChild(elem);
-                            }
-                        }
-                        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                        var address = protocol + window.location.host + window.location.pathname + '/ws';
-                        var socket = new WebSocket(address);
-                        socket.onmessage = function (msg) {
-                            if (msg.data == 'reload') window.location.reload();
-                            else if (msg.data == 'refreshcss') refreshCSS();
-                        };
-                        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                            console.log('Live reload enabled.');
-                            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                        }
-                    })();
-                }
-                else {
-                    console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-                }
-            </script>
-
-           TO REMOVE -->
+ 
 </body>
     </html>
 
